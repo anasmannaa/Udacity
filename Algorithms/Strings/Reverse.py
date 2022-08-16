@@ -1,0 +1,27 @@
+# Code
+#-----
+def string_reverser(our_string):
+
+    """
+    Reverse the input string
+
+    Args:
+       our_string(string): String to be reversed
+    Returns:
+       string: The reversed string
+    """
+    
+    count_down = len(our_string) - 1
+    new_string = ""
+    while (count_down >= 0):
+        new_string += our_string[count_down]
+        count_down -= 1
+    return new_string
+    pass
+  
+  
+# Test Cases
+#-----------
+print ("Pass" if ('retaw' == string_reverser('water')) else "Fail")
+print ("Pass" if ('!noitalupinam gnirts gnicitcarP' == string_reverser('Practicing string manipulation!')) else "Fail")
+print ("Pass" if ('3432 :si edoc esuoh ehT' == string_reverser('The house code is: 2343')) else "Fail")
