@@ -12,7 +12,7 @@ def anagram_checker(str1, str2):
        bool: Indicates whether strings are anagrams
     """
     
-    # TODO: Write your solution here
+# SOLUTION:
     str1 = sorted(str1.replace(" ", "").lower())
     str2 = sorted(str2.replace(" ", "").lower())
 
