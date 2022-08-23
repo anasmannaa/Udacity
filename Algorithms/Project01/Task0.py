@@ -20,10 +20,6 @@ Print messages:
 "Last record of calls, <incoming number> calls <answering number> at time <time>, lasting <during> seconds"
 """
 
-""" 
-SOLUTION
-"""
-
 def printFirstText(list):
     print ('First record of texts,', list[0], ' texts ', list[1], ' at time ', list[2])  
     
@@ -33,8 +29,3 @@ def printLastCall(list):
 
 printFirstText(texts[0])
 printLastCall(calls[-1])
-
-
-""" 
-Worst Case Big-O Notation = O(0n)
-"""
