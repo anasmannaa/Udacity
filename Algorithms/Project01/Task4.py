@@ -26,7 +26,7 @@ The list of numbers should be print out one per line in lexicographic order with
 """
 
 def probability_test(list1, list2):
-    pro_nums = []
+    prob_nums = []
     calls_from = []
     calls_to = []
     texts_from = []
@@ -34,19 +34,18 @@ def probability_test(list1, list2):
     for call in list1:
         calls_from.append(call[0])
         calls_to.append(call[1])
-    for call in list2:
+    for text in list2:
         texts_from.append(call[0])
         texts_to.append(call[1])
 
     for i in calls_from:
-        
-        if i[:3] != "140":
+        if i not in prob_nums:
             if i not in calls_to:
-                if i not in texts_from:
-                    if i not in texts_to:
-                        pro_nums.append(i)
+                if i not in texts_from and i not in texts_to:
+                    prob_nums.append(i)
+    prob_nums.sort()
     print("These numbers could be telemarketers: ")
-    for i in pro_nums:
+    for i in prob_nums:
         print(i)
 
 probability_test(calls, texts)
