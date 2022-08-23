@@ -43,19 +43,37 @@ Print the answer as a part of a message::
 "<percentage> percent of calls from fixed lines in Bangalore are calls
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
+
+    for i in range (len(list1) - 1):
+        if list1[i][0][:5] == "(080)" and list1[i][0] not in bangalore_list:
+            bangalore_list.append(list1[i][0])
 """
 
 
 # TASK 3 - PART A
 def print_specific(list1):
-    bangalore_list = []
-    for i in range (len(list1) - 1):
-        if list1[i][0][:5] == "(080)" and list1[i][0] not in bangalore_list:
-            bangalore_list.append(list1[i][0])
+    bangalore_recievers = []
+    for i in list1:
+        if i[0][:5] == "(080)":
+            if '(' in i[1]:
+                stop_index = i[1].index(")") + 1
+                code = i[1][:stop_index]
+                if code not in bangalore_recievers:
+                    bangalore_recievers.append(code)
+            elif i[1][0] == '7' or i[1][0] == '8' or i[1][0] == '9':
+                code = i[1][:4]
+                if code not in bangalore_recievers:
+                    bangalore_recievers.append(code)
+            elif i[1][:3] == '140':
+                code = '140'
+                if code not in bangalore_recievers:
+                    bangalore_recievers.append(code)
+
 
     print ("The numbers called by people in Bangalore have codes:")
-    for num in bangalore_list:
-        print (num)
+    bangalore_recievers.sort()
+    for code in bangalore_recievers:
+        print (code)
 
 # TASK 3 - PART B
 def print_specific_percent(list1):
