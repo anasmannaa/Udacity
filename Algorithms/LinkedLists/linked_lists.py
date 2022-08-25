@@ -83,3 +83,33 @@ linked_list.append(4)
 linked_list.append(3)
 assert linked_list.search(1).value == 1, f"list contents: {linked_list.to_list()}"
 assert linked_list.search(4).value == 4, f"list contents: {linked_list.to_list()}"
+
+# ----------------------------------------------
+def remove(self, value):
+    """ Delete the first node with the desired data. """
+    if self.head is None:
+        return
+
+    if self.head.value == value:
+        self.head = self.head.next
+        return
+
+    node = self.head
+    while node.next:
+        if node.next.value == value:
+            node.next = node.next.next
+            return
+        node = node.next
+
+    raise ValueError("Value not found in the list.")
+   
+# Test remove
+linked_list.remove(1)
+assert linked_list.to_list() == [2, 1, 3, 4, 3], f"list contents: {linked_list.to_list()}"
+print(linked_list.to_list())
+linked_list.remove(3)
+assert linked_list.to_list() == [2, 1, 4, 3], f"list contents: {linked_list.to_list()}"
+print(linked_list.to_list())
+linked_list.remove(3)
+assert linked_list.to_list() == [2, 1, 4], f"list contents: {linked_list.to_list()}"
+print(linked_list.to_list())
